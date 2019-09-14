@@ -1,4 +1,4 @@
-def copyToDict():
+def convertToDict():
     ary = []
     dict = {}
     file = open('../notes-and-code19-20/smpl/occupations.csv', 'r')
@@ -10,6 +10,7 @@ def copyToDict():
         #print(line.split(',')[0])
         else:
             ary.append(line.split(','))
+    ary = ary[:-1]
     for arr in ary:
         if ',' in arr[1]:
             arr[1] = arr[1][1:]
@@ -19,4 +20,4 @@ def copyToDict():
         dict.update({arr[0]:float(arr[1])})
     print(dict)
 
-copyToDict()
+convertToDict()
