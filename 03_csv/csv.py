@@ -1,4 +1,4 @@
-#team AntKirby
+#code by team AntKirby for Mykolyk Softdev Pd2, written by Tyler Huang and Hannah Fried
 import random
 diction = {}
 
