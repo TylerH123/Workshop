@@ -1,5 +1,6 @@
+#team AntKirby
 import random
-dict = {}
+diction = {}
 
 def convertToDict():
     ary = []
@@ -19,29 +20,20 @@ def convertToDict():
         #print(arr[1])
         arr[1] = arr[1].replace('\n', '')
         #print(arr)
-        dict.update({arr[0]:float(arr[1])})
-    #print(dict)
+        diction.update({arr[0]:float(arr[1])})
+    #print(diction)
 
-def pickRandom():
+def randomJob():
     weightedList = []
-    for job in dict:
-        #print(dict[job])
-        weight = int(float(dict[job]) * 10)
+    for job in diction:
+        weight = int(float(diction[job]) * 10)
         #print(weight)
         while weight > 0:
             weightedList.append(job)
             #print(weightedList)
             weight -= 1
-    #x = 0
-    #count = 0
-    #while x < len(weightedList):
-    #    if weightedList[x] == 'Office and administrative support':
-    #        count += 1
-    #    x += 1
-    #print(count)
-    x = random.randint(0,len(weightedList)-1)
-    print(weightedList[x])
-
+    #print(weightedList)
+    print(weightedList[random.randint(0,len(weightedList)-1)])
 
 convertToDict()
-pickRandom()
+randomJob()
