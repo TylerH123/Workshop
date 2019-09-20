@@ -7,10 +7,11 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route("/static")
+@app.route("/")
 def helloWorld():
     print(__name__)
-
+    return "hello world"
+    
 @app.route("/my_foist_template")
 def test_tmplt():
     coll = [0, 1, 2, 3, 4, 5]
