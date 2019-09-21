@@ -4,7 +4,7 @@ diction = {}
 
 def convertToDict():
     ary = []
-    file = open('../notes-and-code19-20/smpl/occupations.csv', 'r')
+    file = open('occupations.csv', 'r')
     file.readline()
     for line in file:
         if '"' in line:
