@@ -35,7 +35,7 @@ with open( "occupations.csv") as csv_file: #opens csv file to read in python
 def randomOccupation():
     return random.choices( jobClass, weights = percentage, k = 1)[0] #returns a random occupation using percentages as weights
 
-@app.route("/occupyflaskt")
+@app.route("/occupyflaskst")
 def occupationscsvToHTML():
     print("occupations csv to html")
     return render_template(
