@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Welcome </title>
+    <title> Successful Login </title>
   </head>
   <body>
-    <h1> Team Hotpot </h1>
-    <h1> Tyler Huang and Jiong Hao Wu </h1>
-    <h2> Username: {{user}} </h2>
-    <h2> Password: {{password}} </h2>
-    <h2> Request method: {{method}} </h2>
-    <h2> {{greeting}} </h2> <br>
+    <h1> You have successfully logged in! </h1>
+    <h1> Hi {{user}}!</h1>
+    <form action = "/logout">
+      <input type = "submit" name = "sub2" value = "logout">
+    </form>
   </body>
 </html>

@@ -5,8 +5,11 @@
 #2019-10-04
 
 from flask import Flask, render_template, request, session, redirect, url_for
-#from flask.ext.session import Session
 app = Flask(__name__)
+app.secret_key = "fesgdfsdvf"
+
+login = {'user': 'Bob', 'pass': '123'}
+#session['login'] = 'admin'
 
 @app.route("/")
 def root():
@@ -16,11 +19,11 @@ def root():
 
 @app.route("/auth", methods = ["POST"])
 def authenticate():
-    if (request.form['username'] == '' and request.form['password'] == ''):
+    if (request.form['username'] != login['user'] and request.form['password'] == login['pass']):
         return redirect(url_for("errorPW"))
-    if (request.form['username'] == ''):
+    if (request.form['username'] != login['user']):
         return redirect(url_for("errorUser"))
-    if (request.form['password'] == ''):
+    if (request.form['password'] != login['pass']):
         return redirect(url_for("errorPass"))
     else:
         return render_template(
@@ -31,15 +34,23 @@ def authenticate():
             greeting = "hello"
         )
 
+@app.route("/logout")
+def logout():
+    return render_template(
+        "landingpage.html"
+    )
+
 @app.route("/errorPW")
 def errorPW():
-    return "Error: No username and password found. Please enter a username and password"
+    return "Error: Username and Password Do Not Match. Go back and try again"
+
 @app.route("/errorU")
 def errorUser():
-    return "Error: No username found. Please enter a username"
+    return "Error: Username Does Not Match. Go back and try again"
+
 @app.route("/errorP")
 def errorPass():
-    return "Error: No password found. Please enter a password"
+    return "Error: Password Does Not Match. Go back and try again"
 
 if __name__ == "__main__":
     app.debug = True
