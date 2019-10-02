@@ -1,4 +1,4 @@
-#Team Drumstick huangT wuJh
+#Team Hotpot huangT wuJh
 #Tyler Huang
 #SoftDev1 pd2
 #K15: Do I Know You?
