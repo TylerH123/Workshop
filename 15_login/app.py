@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.secret_key = "fesgdfsdvf"
 
 login = {'user': 'Bob', 'pass': '123'}
+errMsg = ""
 #session['login'] = 'admin'
 
 @app.route("/")
@@ -19,12 +20,10 @@ def root():
 
 @app.route("/auth", methods = ["POST"])
 def authenticate():
-    if (request.form['username'] != login['user'] and request.form['password'] == login['pass']):
-        return redirect(url_for("errorPW"))
-    if (request.form['username'] != login['user']):
-        return redirect(url_for("errorUser"))
-    if (request.form['password'] != login['pass']):
-        return redirect(url_for("errorPass"))
+    if (request.form['username'] != login['user'] or request.form['password'] != login['pass']):
+        global errMsg
+        errMsg = getErrorMsg()
+        return redirect(url_for("error"))
     else:
         return render_template(
             "welcome.html",
@@ -40,17 +39,25 @@ def logout():
         "landingpage.html"
     )
 
-@app.route("/errorPW")
-def errorPW():
-    return "Error: Username and Password Do Not Match. Go back and try again"
+@app.route("/error")
+def error():
+    print(errMsg)
+    return render_template(
+        "errorpage.html",
+        errorMsg = errMsg
+    )
 
-@app.route("/errorU")
-def errorUser():
-    return "Error: Username Does Not Match. Go back and try again"
+@app.route("/return")
+def returnPage():
+    return redirect(url_for("root"))
 
-@app.route("/errorP")
-def errorPass():
-    return "Error: Password Does Not Match. Go back and try again"
+def getErrorMsg():
+    if (request.form['username'] != login['user'] and request.form['password'] != login['pass']):
+        return "Incorrect username and password. Please go back and try again."
+    if (request.form['username'] != login['user']):
+        return "Incorrect username. Please go back and try again."
+    if (request.form['password'] != login['pass']):
+        return "Incorrect password. Please go back and try again."
 
 if __name__ == "__main__":
     app.debug = True
