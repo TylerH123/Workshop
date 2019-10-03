@@ -13,55 +13,52 @@ session = {}
 
 @app.route("/")
 def root():
-    if 'user' in session:
+    if 'user' in session: #if a user is already logged in then load the welcome page
         return render_template(
             "welcome.html",
             user = session['user'],
-            greeting = "hello"
             )
-    else:
+    else: #else load the home page
         return render_template(
             "landingpage.html"
         )
 
 @app.route("/auth", methods = ["POST"])
 def authenticate():
-    if (request.form['username'] != login['user'] or request.form['password'] != login['pass']):
+    if (request.form['username'] != login['user'] or request.form['password'] != login['pass']): #if  neither the username nor password is correct
         global errMsg
-        errMsg = getErrorMsg()
-        return redirect(url_for("error"))
+        errMsg = getErrorMsg() #get the error message
+        return redirect(url_for("error")) #redirect to the link given by the error method, which is the error page
     else:
-        session['user'] = request.form['username']
-        flash('You were successfully logged in')
-        return render_template(
+        session['user'] = request.form['username'] #create new session and store the username
+        return render_template( #load the welcome page
             "welcome.html",
             user = request.form['username'],
             greeting = "hello"
         )
 
 @app.route("/logout")
-def logout():
-    session.pop('user', None);
-    return redirect(url_for("root"))
+def logout(): #logs the user out from the welcome page
+    session.pop('user', None); #remove the user from session
+    return redirect(url_for("root")) #load the url for the root method which is the home page
 
 @app.route("/error")
-def error():
-    print(errMsg)
+def error(): #loads the error page
     return render_template(
         "errorpage.html",
         errorMsg = errMsg
     )
 
 @app.route("/return")
-def returnPage():
-    return redirect(url_for("root"))
+def returnPage(): #returns to the home page from error page
+    return redirect(url_for("root")) #loads url for root method which is the home page
 
-def getErrorMsg():
-    if (request.form['username'] != login['user'] and request.form['password'] != login['pass']):
+def getErrorMsg(): #gets the error message
+    if (request.form['username'] != login['user'] and request.form['password'] != login['pass']): #if incorrect username and password
         return "Incorrect username and password. Please go back and try again."
-    if (request.form['username'] != login['user']):
+    if (request.form['username'] != login['user']): #if incorrect username
         return "Incorrect username. Please go back and try again."
-    if (request.form['password'] != login['pass']):
+    if (request.form['password'] != login['pass']): #if incorrect password
         return "Incorrect password. Please go back and try again."
 
 if __name__ == "__main__":
