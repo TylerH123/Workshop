@@ -10,13 +10,20 @@ app.secret_key = "fesgdfsdvf"
 
 login = {'user': 'Bob', 'pass': '123'}
 errMsg = ""
-#session['login'] = 'admin'
+session = {'login': False}
 
 @app.route("/")
 def root():
-    return render_template(
-        "landingpage.html"
-    )
+    if (session['login']):
+        return render_template(
+            "welcome.html",
+            user = login['user'],
+            greeting = "hello"
+            )
+    else:
+        return render_template(
+            "landingpage.html"
+        )
 
 @app.route("/auth", methods = ["POST"])
 def authenticate():
@@ -25,16 +32,16 @@ def authenticate():
         errMsg = getErrorMsg()
         return redirect(url_for("error"))
     else:
+        session['login'] = True;
         return render_template(
             "welcome.html",
             user = request.form['username'],
-            password = request.form['password'],
-            method = request.method,
             greeting = "hello"
         )
 
 @app.route("/logout")
 def logout():
+    session['login'] = False;
     return render_template(
         "landingpage.html"
     )
