@@ -6,15 +6,14 @@
 
 from flask import Flask, render_template, request, session, redirect, url_for
 app = Flask(__name__)
-app.secret_key = "fesgdfsdvf"
 
 login = {'user': 'Bob', 'pass': '123'}
 errMsg = ""
-session = {'login': False}
+session = {}
 
 @app.route("/")
 def root():
-    if (session['login']):
+    if 'user' in session:
         return render_template(
             "welcome.html",
             user = login['user'],
@@ -32,7 +31,7 @@ def authenticate():
         errMsg = getErrorMsg()
         return redirect(url_for("error"))
     else:
-        session['login'] = True;
+        session['user'] = request.form['username']
         return render_template(
             "welcome.html",
             user = request.form['username'],
@@ -41,10 +40,8 @@ def authenticate():
 
 @app.route("/logout")
 def logout():
-    session['login'] = False;
-    return render_template(
-        "landingpage.html"
-    )
+    session.pop('user', 0);
+    return redirect(url_for("root"))
 
 @app.route("/error")
 def error():
