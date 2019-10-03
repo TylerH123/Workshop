@@ -34,7 +34,6 @@ def authenticate():
         return render_template( #load the welcome page
             "welcome.html",
             user = request.form['username'],
-            greeting = "hello"
         )
 
 @app.route("/logout")
