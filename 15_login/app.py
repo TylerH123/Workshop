@@ -16,7 +16,7 @@ def root():
     if 'user' in session:
         return render_template(
             "welcome.html",
-            user = login['user'],
+            user = session['user'],
             greeting = "hello"
             )
     else:
@@ -32,6 +32,7 @@ def authenticate():
         return redirect(url_for("error"))
     else:
         session['user'] = request.form['username']
+        flash('You were successfully logged in')
         return render_template(
             "welcome.html",
             user = request.form['username'],
@@ -40,7 +41,7 @@ def authenticate():
 
 @app.route("/logout")
 def logout():
-    session.pop('user', 0);
+    session.pop('user', None);
     return redirect(url_for("root"))
 
 @app.route("/error")
