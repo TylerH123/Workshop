@@ -41,10 +41,6 @@ def logout(): #logs the user out from the welcome page
     session.pop('user', None); #remove the user from session
     return redirect(url_for("root")) #load the url for the root method which is the home page
 
-@app.route("/return")
-def returnPage(): #returns to the home page from error page
-    return redirect(url_for("root")) #loads url for root method which is the home page
-
 def getErrorMsg(): #gets the error message
     if (request.form['username'] != login['user'] and request.form['password'] != login['pass']): #if incorrect username and password
         return "Incorrect username and password. Please try again."
