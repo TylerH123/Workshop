@@ -26,9 +26,8 @@ def root():
 @app.route("/auth", methods = ["POST"])
 def authenticate():
     if (request.form['username'] != login['user'] or request.form['password'] != login['pass']): #if  neither the username nor password is correct
-        errMsg = getErrorMsg() #get the error message
         flash("ERROR!")
-        flash(errMsg)
+        flash(getErrorMsg()) #get the error message
         return redirect(url_for("root")) #redirect to the link given by the error method, which is the error page
     else:
         session['user'] = request.form['username'] #create new session and store the username
