@@ -6,6 +6,12 @@
   <h1> Team Hotpot </h1>
 {% endblock %}
 {% block content %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <h1> {{ messages[0] }} </h1>
+      <h1> {{ messages[1] }} </h1>
+    {% endif %}
+  {% endwith %}
   <form action = "/auth", method = "POST">
     Enter your username:
     <input type = "text" name = "username"> <br>
