@@ -17,7 +17,6 @@ c.execute(command)    # run SQL statement
 with open('courses.csv', 'r') as csvfile: # open csv file
     reader = csv.DictReader(csvfile, delimiter = ",")
     #convert csv into dictionary with , as delimiter
-    reader.__next__() #skip first line
     for line in reader:
         command = "INSERT INTO courses VALUES (\"" + line['code'] + "\"," + line['mark'] + "," + line['id'] + ");"
         # insert code, mark, id into table
@@ -30,7 +29,6 @@ c.execute(command)
 
 with open('students.csv', 'r') as csvfile:
     reader = csv.DictReader(csvfile, delimiter = ",")
-    reader.__next__()
     for line in reader:
         command = "INSERT INTO students VALUES (\"" + line['name'] + "\"," + line['age'] + "," + line['id'] + ");"
         # insert name, age, id into table
