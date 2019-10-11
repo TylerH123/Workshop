@@ -44,30 +44,29 @@ WHERE students.id = courses.id;
 """
 foo = c.execute(q)
 
-commands = []
+commands = [] #array of commands to be inserted into database
 for i,bar in enumerate(foo):
-    print(bar)
     if i == 0: #if first element
-        sum = bar[2]
-        count = 1
-        id = bar[1]
-        name = bar[0]
+        sum = bar[2] #set sum to the grade of the first element
+        count = 1 #set count to 1
+        id = bar[1] #set id to id of the first element
+        name = bar[0] #set name to id of the first element
     elif i == 23: #if last element
-        avg = sum / count
-        commands.append((name, id, avg))
+        avg = sum / count #calculate average
+        commands.append((name, id, avg)) #add to commands
     else:
         if bar[1] == id: #if id is the same
             sum += bar[2] #add grade to sum
             count += 1 #increment count by 1
         else: #if different id
             avg = sum / count #calculate average
-            commands.append((name, id, avg))
+            commands.append((name, id, avg)) #add to commands
             sum = bar[2] #reset sum to the new number
             count = 1 #reset count to 1
             id = bar[1] #set id to the new id
             name = bar[0] #set name to the new name
 command = "INSERT INTO stu_avg VALUES (?,?,?);"
-c.executemany(command,commands)
+c.executemany(command,commands) #write all the commands to the database
 
 
 db.commit() #save changes
