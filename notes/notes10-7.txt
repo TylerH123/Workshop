@@ -1,0 +1,28 @@
+CREATE TABLE <name> (<column name> <data type>, ...)
+
+Data types:
+TEXT, INTEGER, REAL, NUMERIC (default to int, but can be float), BLOB (no suggested type)
+
+INSERT INTO <tbl_name> VALUES (<field 1>, <field 2>  '85)
+
+NULL can be used in any entry
+
+Example table:
+CREATE TABLE amunals (name TEXT,  id INTEGER PRIMARY KEY);
+INSERT INTO amunals VALUES ("whose-it", 2);
+INSERT INTO amunals VALUES ("whats-it", 1);
+INSERT INTO amunals VALUES ("blurb", 0);
+
+SELECT * FROM <tbl_name>;
+- shows all fields for each entry in table tbl_name
+
+SELECT name FROM tpotsua;
+- gives column
+
+SELECT name FROM tpotusa WHERE id = 0;
+
+.help
+.quit
+.tables
+.headers on|off
+.mode column|csv|list|html|insert|line|tabs
