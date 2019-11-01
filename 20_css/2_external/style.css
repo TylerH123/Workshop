@@ -1,0 +1,48 @@
+body {
+  background-color: Blue;
+  width:1425px;
+}
+.div1 {
+  position: relative;
+  background-color: SlateBlue;
+  height: 345px;
+}
+h1 {
+  padding: 10px;
+  background-color: DodgerBlue;
+  text-align: center;
+  color: White;
+  font-family: Arial;
+}
+h3 {
+  margin-left: 10px;
+  font-family: Arial;
+}
+a {
+  color: White;
+  font-family: Arial;
+  text-decoration: none;
+  margin-left: 10px;
+}
+h2 {
+  position: relative;
+  left: 300px;
+  top: -120px;
+  font-family: Arial;
+}
+p {
+  position: relative;
+  left: 300px;
+  top: -120px;
+  overflow-wrap: break-word;
+  width: 1120px;
+  font-family: Arial;
+}
+h4 {
+  position: relative;
+  top: -135px;
+  background-color: #a45acd;
+  text-align: right;
+  font-family: Arial;
+  padding: 10px;
+}
