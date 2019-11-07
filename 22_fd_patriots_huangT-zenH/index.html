@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <!-- If you delete this meta tag World War Z will become a reality -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Foundation</title>
+
+  <!-- Compressed CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css">
+  <link rel="stylesheet" href="css/app.css">
+
+  <!-- Compressed JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js"></script>
+
+</head>
+<body>
+
+  <h1 id="page-title">Foundation Basics</h1>
+  <h4 id="page-title">Tyler Huang & Hilary Zen</h4>
+
+  <br><p>Foundation is a front-end framework. It comes with many different objects and classes that have already been designed, to make styling your websites much easier!</p>
+
+  <p>For example, you can turn basic links into buttons by labeling them with various classes.</p>
+
+  <p><a href="#" class="button">Simple Button</a></p>
+  <p>You can create the above button from a normal link by adding the attribute <code>class="button"</code> inside the a tag.</p>
+
+  <p><a href="#" class="success button">Success Btn</a></p>
+  <p>This time, we add two classes, <code>class="success button"</code>, to the link.</p>
+
+  <p><a href="#" class="alert button">Alert Btn</a></p>
+  <p>This button uses <code>class="alert button"</code>.</p>
+
+  <p><a href="#" class="secondary button">Secondary Btn</a></p>
+  <p>This button uses <code>class="secondary button"</code>.</p>
+
+  <h2>Getting Started</h2>
+
+  <p>The button classes shown above, and all of the other classes that Foundation comes with, are stored in a CSS file that you can download. However, you can start using file right away by adding <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"&gt;</code> in the head of your HTML file. The CDN link we use leads to the compressed version of the full CSS file.</p>
+  <p>In addition, you can add your own CSS file by adding <code>&lt;link rel="stylesheet" href="css/app.css"&gt;</code> underneath your CDN link. Creating an app.css file allows you to write your own CSS to customize your page! It also allows you to edit any pre-made elements that you want to use. If you wanted to make the success button blue instead of green, you can copy the CSS code for that class into app.css and change the color!</p>
+
+  <h2>Nav Bars</h2>
+
+  <p>These pre-styled classes are very helpful when adding navigation bars to your website! One of the most useful features of Foundation, these nav bars save you from the frustration of moving links into the correct place. The example below uses a nav tag with <code>class="top-bar topbar-responsive"</code> and places links to other pages in an unordered list.</p>
+
+  <nav class="top-bar topbar-responsive">
+    <div class="top-bar-title">
+      <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+      </span>
+      <a class="topbar-responsive-logo" href="#"><strong>Site Title</strong></a>
+    </div>
+    <div id="topbar-responsive" class="topbar-responsive-links">
+      <div class="top-bar-right">
+        <ul class="menu simple vertical medium-horizontal">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Works</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <button type="button" class="button hollow topbar-responsive-button">Categories</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br><p>This isn't the only type of nav bar; Foundation offers several different classes to pick from!</p>
+
+  <h2>Forms</h2>
+
+  <p>Using Foundation also makes styling forms much easier!</p>
+
+  <div class="login-box">
+    <div class="row collapse expanded">
+      <div class="small-12 medium-6 column small-order-2 medium-order-1">
+        <div class="login-box-form-section">
+          <h4 class="login-box-title">Sign up</h4>
+          <input class="login-box-input" type="text" name="username" placeholder="Username" />
+          <input class="login-box-input" type="email" name="email" placeholder="E-mail" />
+          <input class="login-box-input" type="password" name="password" placeholder="Password" />
+          <input class="login-box-input" type="password" name="password2" placeholder="Retype password" />
+          <input class="login-box-submit-button" type="submit" name="signup_submit" value="Sign me up" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><p>However, you aren't limited to text boxes. Checkboxes, which are very difficult to design using only plain CSS, can be turned into easy-to-use switches!</p>
+
+  <div class="switch">
+    <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+    <label class="switch-paddle" for="exampleSwitch">
+      <span class="show-for-sr">Download Kittens</span>
+    </label>
+  </div>
+
+
+</body>
+</html>
