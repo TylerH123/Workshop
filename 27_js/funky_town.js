@@ -26,3 +26,8 @@ var gcd = function(a,b){
   }
   return num;
 }
+
+var randomStudent = function(){
+  var students = ["a","b","c"]
+  return students[Math.round(Math.random() * 3)];
+}
