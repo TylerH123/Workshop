@@ -1,0 +1,16 @@
+<button id="b"> The button </button>
+
+var dasbut = document.getElementById("b");
+dasbut.addEventListener('click', fxnName);
+
+document.createElement(<HTML TAG NAME>);
+Element.setAttribute(<NAME>, <VALUE>);
+.remove()
+mouseover
+mouseout
+
+e is for Event
+-event is interface implemented by all events
+-automatically passed to event handlers (eq ur fxns)
+
+button.addEventListener( 'click', function(e) {console.log(e);})
