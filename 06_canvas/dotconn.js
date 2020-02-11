@@ -10,7 +10,7 @@ K #06: Dot Dot Dot
 // clientX returns the x-coordinate of the mouse pointer relative to the upper left edge of the content area of the browser window
 // pageX returns the x-coordinate of the mouse pointer relative to the top left of the fully rendered content area in the browser
 
-var c = document.getElementById("slate");
+var c = document.getElementById("playground");
 var ctx = c.getContext("2d");
 ctx.fillStyle = "#ff0000";
 var x,y,prevX,prevY;
