@@ -1,5 +1,5 @@
 /*
-William Lin, Tyler Huang
+Tyler Huang
 SoftDev Pd. 2
 K #05: ...and I want to Paint It Better
 2020-02-06
@@ -11,13 +11,9 @@ K #05: ...and I want to Paint It Better
 // e.offsetY returns the x-coordinate of the nouse pointer relative to a target element
 
 var c = document.getElementById("slate");
-//console.log(c);
 var ctx = c.getContext("2d");
-//console.log(ctx);
 ctx.fillStyle = "#ff0000";
-// ctx.fillRect(50 , 50, 100, 200);
-// console.log(ctx);
-
+var shape = "rect";
 
 var clear = function(){
 	var width = c.width;
@@ -28,7 +24,7 @@ var clear = function(){
 var createRect = function(){
 	var x = event.offsetX;
 	var y = event.offsetY;
-	ctx.fillRect(x , y, 100, 200);
+	ctx.fillRect(x , y, 20, 40);
 }
 
 var createDot = function(){
@@ -39,7 +35,14 @@ var createDot = function(){
 	ctx.fill();
 }
 
-var shape = "rect";
+var createShape = function(){
+  if (shape == "rect") {
+    createRect();
+  }
+  else {
+    createDot();
+  }
+}
 
 var toggle = document.getElementById("toggle");
 console.log(toggle.checked);
@@ -62,14 +65,4 @@ toggle.addEventListener("click", function(){
 var button = document.getElementById("clear");
 button.addEventListener("click", clear);
 
-c.addEventListener("click", function(){
-  if (shape == "rect"){
-    c.addEventListener("click", createRect());
-  }
-  else{
-    c.addEventListener("click", createDot());
-    console.log("creating DOT");
-  }
-  // console.log("clicked");
-  // console.log(shape);
-});
+c.addEventListener("click", createShape);
