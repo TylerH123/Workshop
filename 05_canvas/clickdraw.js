@@ -1,5 +1,5 @@
 /*
-William Lin, Derek Leung
+William Lin, Tyler Huang
 SoftDev Pd. 2
 K #05: ...and I want to Paint It Better
 2020-02-06
