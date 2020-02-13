@@ -8,6 +8,7 @@ K #07: They lock us in the tower whenever we get caught
 var c = document.getElementById("slate");
 var ctx = c.getContext("2d");
 ctx.fillStyle = "#6a0dad";
+var shape = "rect";
 var id;
 var radius = 10;
 var growth = 1;
@@ -19,7 +20,6 @@ var clear = function(){
 }
 
 var animate = function(){
-	window.cancelAnimationFrame(id);
 	clear();
 	var x = c.width / 2;
 	var y = c.height / 2;
@@ -39,12 +39,16 @@ var animate = function(){
 	id = window.requestAnimationFrame(animate);
 }
 
-var stop = function(){
-	window.cancelAnimationFrame(id);
-}
-
 var stopButton = document.getElementById("stop");
-stopButton.addEventListener("click", stop);
+stopButton.addEventListener("click", function(e){
+	window.cancelAnimationFrame(id);
+	id = null;
+	}
+);
 
 var button = document.getElementById("animate");
-button.addEventListener("click", animate);
+button.addEventListener("click", function(e){
+	if (id == null){
+		animate();
+	}}
+);
