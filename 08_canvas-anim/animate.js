@@ -8,7 +8,7 @@ K #08: What is it saving the screen from?
 var c = document.getElementById("slate");
 var ctx = c.getContext("2d");
 ctx.fillStyle = "#6a0dad";
-var circleId, dvdId, dvdX, dvdY;
+var id, dvdX, dvdY;
 var radius = 10;
 var growth = 1;
 var dirX = 1;
@@ -22,8 +22,7 @@ var clear = function(e){
 }
 
 var growCircle = function(){
-	window.cancelAnimationFrame(circleId);
-	window.cancelAnimationFrame(dvdId);
+	window.cancelAnimationFrame(id);
 	ctx.clearRect(0,0,c.width,c.height);
 	var x = c.width / 2;
 	var y = c.height / 2;
@@ -40,7 +39,7 @@ var growCircle = function(){
 	}
 	radius += growth;
 	//console.log(radius);
-	circleId = window.requestAnimationFrame(growCircle);
+	id = window.requestAnimationFrame(growCircle);
 }
 
 var displayDVD = function(){
@@ -51,8 +50,7 @@ var displayDVD = function(){
 }
 
 var animateDVD = function(){
-	window.cancelAnimationFrame(circleId);
-	window.cancelAnimationFrame(dvdId);
+	window.cancelAnimationFrame(id);
 	ctx.clearRect(0,0,c.width,c.height);
 	dvdX += dirX;
 	dvdY += dirY;
@@ -66,12 +64,11 @@ var animateDVD = function(){
 		//console.log(dvdY);
 	}
 	ctx.drawImage(logo,dvdX,dvdY);
-	dvdId = window.requestAnimationFrame(animateDVD);
+	id = window.requestAnimationFrame(animateDVD);
 }
 
 var stop = function(){
-	window.cancelAnimationFrame(circleId);
-	window.cancelAnimationFrame(dvdId);
+	window.cancelAnimationFrame(id);
 }
 
 var stopButton = document.getElementById("stop");
