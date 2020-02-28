@@ -16,7 +16,6 @@ def findByBorough(borough):
         for restaurant in restaurants.find({"borough": borough}):
                 print(restaurant["name"])
 
-
 def findByZipWithScoreCap(zip, score):
         for restaurant in restaurants.find({"address.zipcode" : str(zip), "grades.score": {"$lt": score}}):
                 print(restaurant["name"])
@@ -25,9 +24,9 @@ def findByZip(zip):
         for restaurant in restaurants.find({"address.zipcode" : str(zip)}):
                 print(restaurant["name"])        
 
-def findByZipAndScore(zip, score):
-        for restaurant in restaurants.find({"address.zipcode" : str(zip), "grades.score": {"$lt": score}}):
+def findByZipAndGrade(zip, grade):
+        for restaurant in restaurants.find({"address.zipcode" : str(zip), "grades.grade": grade}):
                 print(restaurant["name"]) 
 
 #findByZip(10282)
-findByZipAndScore(10282, 3)
+#findByZipAndGrade(10282, "A")
