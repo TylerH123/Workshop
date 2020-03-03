@@ -27,5 +27,10 @@ def findByGender(gender: str):
 		for senator in col.find({"person.gender": gender}):
 			pprint(senator)
 
+def findParty(party):
+    for senator in col.find({"party": party}):
+        pprint(senator)
+
 #findByName("Lamar Alexander")
-findByGender("male")
+#findByGender("male")
+findParty("Republican")
