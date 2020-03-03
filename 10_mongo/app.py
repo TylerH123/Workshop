@@ -6,20 +6,26 @@
 
 from pymongo import MongoClient
 from pprint import pprint
-import datetime
 import json
 
 client = MongoClient("mongodb://admin:thuang@64.225.14.222/")
-db = client.stickySulphur
-col = db.senators
+col = client.stickySulphur.senators
 
 def findByName(name):
-    if " " not in name: 
-        return("full name required")
-    else:
-        fname = name[:name.find(" ")]
-        lname = name[name.find(" ")+1:]
-    for senator in col.find({"person.firstname": fname, "person.lastname": lname}):
-        pprint(senator)
+	if " " not in name:
+		pprint("full name required")
+	else: 
+		fname = name[:name.find(" ")]
+		lname = name[name.find(" ")+1:]
+		for senator in col.find({"person.firstname": fname, "person.lastname": lname}):
+			pprint(senator)
 
-findByName("Lamar Alexander")
+def findByGender(gender: str):
+	if gender is not "male" and gender is not "female": 
+		pprint("please enter a valid gender")
+	else: 
+		for senator in col.find({"person.gender": gender}):
+			pprint(senator)
+
+#findByName("Lamar Alexander")
+findByGender("male")
