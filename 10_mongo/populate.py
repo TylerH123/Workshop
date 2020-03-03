@@ -5,7 +5,7 @@ import json
 import datetime
 
 client = MongoClient("mongodb://admin:thuang@64.225.14.222/")
-db = client.teamName
+db = client.stickySulphur
 col = db.senators
 
 with open("./role.json", 'r') as file:
