@@ -6,6 +6,8 @@
 
 from pymongo import MongoClient
 from pprint import pprint
+import datetime
+from dateutil.relativedelta import relativedelta
 import json
 
 client = MongoClient("mongodb://admin:thuang@64.225.14.222/")
@@ -31,6 +33,21 @@ def findParty(party):
     for senator in col.find({"party": party}):
         pprint(senator)
 
+def findByAge(age):
+    now = datetime.datetime.now()
+    for senator in col.find({}):
+        birthdayNumbers = senator["person"]["birthday"].split("-")
+        birthday = datetime.datetime(int(birthdayNumbers[0]), int(birthdayNumbers[1]), int(birthdayNumbers[2]))
+        senAge = relativedelta(now, birthday).years
+        if senAge > age:
+            pprint(senator)
+
+def findByRank(rank):
+    for senator in col.find({"senator_rank": rank}):
+        pprint(senator)
+
 #findByName("Lamar Alexander")
 #findByGender("male")
-findParty("Republican")
+#findParty("Republican")
+findByAge(50)
+#findByRank("junior")
