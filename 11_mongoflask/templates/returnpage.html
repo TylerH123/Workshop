@@ -4,20 +4,15 @@
 		<title> Pokedex </title>
   	</head>
   	<body id="body">
+		{% for pokemon in data %}
+		  	<div>
+				Name: {{pokemon['name']}}
+				<br>
+				<img src={{pokemon['img']}}>
+				<br> 
+				Types: {{pokemon['type']}}
+				<br><br><br>
+			</div>
+		{% endfor %}
   	</body>
-	<script type="text/javascript">
-		var arr = JSON.parse('{{data|tojson}}');
-		var body = document.getElementById("body"); 
-		var i;
-		for (i = 0; i < arr.length; i++){
-			var div = document.createElement("div");
-			div.innerHTML = "Name: " + arr[i]['name'] + "<br>";
-			var img = document.createElement("img");
-			img.src = arr[i]['img'];
-			div.appendChild(img);
-			div.innerHTML += "<br> Types: " + arr[i]['type'] + "<br><br><br>";
-			body.appendChild(div);
-			//console.log(arr[i])
-		}
-	</script>
 </html>
