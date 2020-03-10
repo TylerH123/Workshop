@@ -5,12 +5,21 @@
   	</head>
   	<body id="body">
 		{% for pokemon in data %}
-		  	<div>
+			<div>
 				Name: {{pokemon['name']}}
 				<br>
 				<img src={{pokemon['img']}}>
 				<br> 
-				Types: {{pokemon['type']}}
+				{% if query == "type" %}
+					Type: 
+					{% if pokemon['type']|length == 2 %}
+						{{pokemon['type'][0]}}, {{pokemon['type'][1]}} 
+					{% else %}
+						{{pokemon['type'][0]}}
+					{% endif %}
+				{% elif query == "rarity" %}
+					Rarity: {{pokemon['spawn_chance']}}
+				{% endif %}
 				<br><br><br>
 			</div>
 		{% endfor %}

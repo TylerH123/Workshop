@@ -23,7 +23,11 @@ def getType():
 	#print(request.form['types'])
 	#print(get_type(request.form["types"])[0])
 	#print(json.dumps(get_type(request.form["types"])))
-	return render_template("returnpage.html", data=get_type(request.form["types"]))
+	return render_template("returnpage.html", query="type", data=get_type(request.form["types"]))
+
+@app.route("/rarity", methods=["POST"])
+def getRarity():
+	return render_template("returnpage.html", query="rarity", data=get_rarity(request.form["rarity"]))
 
 def get_type(type):
 	cursor = col.find({"type": type}, {"_id": 0, "name": 1, "img": 1, "type": 1})
@@ -32,10 +36,13 @@ def get_type(type):
 		arr.append(document)
 	return arr
 
-def get_rarity(spawn_Percentage):
-    cursor = col.find({"spawn_chance": {"$lt": spawn_Percentage / 100} })
-    for document in cursor:
-        print(document)
+def get_rarity(percent):
+	cursor = col.find({"spawn_chance": {"$lt": int(percent) / 100, "$gt": 0}})
+	arr = []
+	for document in cursor:
+		arr.append(document)
+	return arr
+
 
 if __name__ == "__main__":
     app.debug = True
