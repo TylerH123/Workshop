@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Node.js</title>
+	</head>
+
+	<body>
+		<div>
+			<h1>Node.js</h1>
+			<ul>
+				<li>Runtime environment built on Chrome's V8 engine</li>
+				<li>Allows you to write server-side applications in Javascript</li>
+				<li>Open source and cross platform</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Pros of Using Node Over Python</h2>
+			<ul>
+				<li>Only need to know one language</li>
+				<li>Npm is one of the largest repositories of software libraries in the world</li>
+				<li>Node apps are faster</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Why should we care?</h1>
+			<ul>
+				<li>According to GitHub, Javascript is the #1 programming language</li>
+				<li>Recently, job searches for Node.js rose by 57%</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Simple Server</h2>
+				var http = require('http'); <br>
+
+				http.createServer(function (req, res) { <br>&nbsp&nbsp&nbsp
+					res.writeHead(200, {'Content-Type': 'text/html'}); <br>&nbsp&nbsp&nbsp
+					res.end('Hello World!'); <br>
+				}).listen(5000);
+		</div>
+
+		<div>
+			<h2>Modules</h1>
+			<ul>
+				<li>Set of functions you want to include in your application</li>
+				<li>Similar to modules in Python</li>
+				<li>Use require("[module_name]") to include in your application</li>
+				<li>Each method in the module must have exports. before the name in order to be used in your application</li>
+			</ul>
+		</div>
+		<div>
+			<h2>Url Module</h1>
+			<ul>
+				<li>Helps split the web address into readable parts</li>
+				<li>Using the url.parse() method, we will get an URL object back</li>
+				<li>To get the pathname, we can add .pathname to the end of the method</li>
+			</ul>
+		</div>
+
+		<dic>
+			<h2>MongoDB</h1>
+			<ul>
+				<li>Install with: npm install mongodb</li>
+				<li>Methods include: createCollection, insertOne, findOne, insertMany, deleteOne, dropCollection, and many more</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Cool Applications of Node.js</h1>
+			<ul>
+				<li>Chatroom</li>
+				<li>Remote Control for a Car</li>
+				<li>Gameboy Emulator to Play Pokemon</li>
+				<li>And much more...</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Running Node Apps</h1>
+			<p>To run a node app, simply type node [file_name] in your terminal</p>
+		</div>
+
+		<div>
+			<h2>Resources</h2>
+			<ul>
+				<li><a href="https://nodejs.org/en/">Download Node.js</a></li>
+				<li><a href="https://nodejs.org/docs/latest-v13.x/api/">Node.js Documentation</a></li>
+				<li><a href="https://blog.teamtreehouse.com/7-awesome-things-can-build-node-js">Some Cool Applications of Node.js</a></li>
+				<li><a href="https://www.sitepoint.com/learn/nodejs/nodejs-tutorials/">Learn More About Node.js</a></li>
+				<li><a href="https://github.com/TylerH123/node_app">Repo for demo code</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
