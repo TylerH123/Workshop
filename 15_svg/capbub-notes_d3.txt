@@ -1,0 +1,17 @@
+Prediction 1: An alert pops up of the name clicked
+Answer 1: Correct
+
+Prediction 2: Alert pops up twice and I think the order is
+              name, row, table because of the order the code
+              was written in the JS file.
+Answer 2: Correct
+Revised Answer 2: After 3rd index page, I learned order is
+                  actually the one with the smallest scope.
+
+Prediction 3: Same as 1
+Answer 3: An alert pops up of the table. Did not see the extra
+          true. Found that the one with the extra parameter
+          true will pop up and if multiple trues the one with
+          the largest scope will happen
+
+Prediction 4: Tested this during 3rd prediction
